@@ -1,8 +1,8 @@
 // Generic ArrayList
 
-public class MyArrayList <T>
+public class MyArrayList <E>
 {
-    private T [] data;
+    private E [] data;
     private int size;
     private int MAXELEMENTS = 100;
 
@@ -12,14 +12,14 @@ public class MyArrayList <T>
         size = 0;
         Object [] temp = new Object[MAXELEMENTS];
         // T[] data = new T[100]; we wanted to do this, but can't create an array of generics
-        data = (T[]) temp;
+        data = (E[]) temp;
 
     }
 
     // Start By recreating JVM Array methods
     // 1. Add method requires index and value, and returns nothing
 
-    public void add (int index, T value) 
+    public void add (int index, E value) 
     // Index is can just be any data type. Value has to be a T data type
     {
 
@@ -51,7 +51,7 @@ public class MyArrayList <T>
     // Polymorphism: Method overloading
     // If we just want to add at end of array, no index needed
 
-    public void add(T value)
+    public void add(E value)
     {
         data[size] = value;
         size++;
@@ -82,7 +82,7 @@ public class MyArrayList <T>
     }
 
     // 3. Get method finds the element at specific index and returns object
-    public T get(int index)
+    public E get(int index)
     {
         // Index might be out of bounds
         if (index < 0 || index > size)
@@ -100,7 +100,7 @@ public class MyArrayList <T>
     }
 
     // 4. Remove method removes element at given index and returns element
-    public T remove(int index)
+    public E remove(int index)
     {
         // Index might be out of bounds
         if (index < 0 || index > size)
@@ -111,7 +111,7 @@ public class MyArrayList <T>
 
         // index within bounds
         // opposite of add() method
-        T removed = data[index]; // save the object before we remove it
+        E removed = data[index]; // save the object before we remove it
 
         for (int i = index; i < size -1; i++) // size -1 to avoid out of bounds exception.
         {
@@ -187,7 +187,7 @@ public class MyArrayList <T>
     }
 
     // 8. Filter array between two values, cutting array between those points.
-    public void filter(T low, T high)
+    public void filter(E low, E high)
     {
         // If no element in array
         if(size()==0)
@@ -231,9 +231,9 @@ public class MyArrayList <T>
 
     // Merge method
     // Combine arrayLists return array
-    public MyArrayList <T> merge (MyArrayList<T> paramList)
+    public MyArrayList <E> merge (MyArrayList<E> paramList)
     {
-        MyArrayList<T> holdArray = new MyArrayList<>();
+        MyArrayList<E> holdArray = new MyArrayList<>();
         
         // If current arrayList has no elements
         if(this.size() == 0)
@@ -256,7 +256,7 @@ public class MyArrayList <T>
 
         }
 
-        MyArrayList<T> returnArrayList = new MyArrayList<>();
+        MyArrayList<E> returnArrayList = new MyArrayList<>();
 
         int i =0; // counter for calling array (ours)
         int j = 0; // counter for paramter array
@@ -311,9 +311,9 @@ public class MyArrayList <T>
     }
 
     // Contains methods as in test:
-    public boolean containing(T element)
+    public boolean containing(E element)
     {
-        MyArrayList<T> list = new MyArrayList<>();
+        MyArrayList<E> list = new MyArrayList<>();
 
         if (this.size() == 0)
         {

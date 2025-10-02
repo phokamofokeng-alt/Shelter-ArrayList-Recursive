@@ -1,3 +1,5 @@
+// Class with methods fo item and operations regarding item
+
 public class StorageItem 
 {
     private String type;
@@ -29,6 +31,7 @@ public class StorageItem
         this.quantity -= n;
     }
 
+    @Override
     public String toString()
     {
         return "[ " +type+ ": " +quantity+ "]";
